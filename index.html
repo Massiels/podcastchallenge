@@ -1,443 +1,294 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content=""
-    />
-
-  
-    <title>Favorite Podcast Challenge</title>
-  
+    <html lang="en">
+    <head>
+         /* Internal styles goes here.. */
+	    <style>
+		    @import url('https://fonts.googleapis.com/css2?family=Belanosima&family=Rubik+Vinyl&display=swap');
    
+  body
+  {
+      margin: 0;
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      background-image: url("https://darksoul-codepen.github.io/DarkSoul.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      font-family: 'Belanosima', sans-serif;
+      color: #564d93;
+  }
+  .darksoul-music
+  {
+      margin: auto;
+      width: 300px;
+      height: 500px;
+      background-color: rgba(255, 255, 255, 0.175);
+      box-shadow: 0.5px 0.5px 2px rgba(255, 255, 255, 0.404), -0.5px -0.5px 2px rgba(255, 255, 255, 0.481);
+      border-radius: 0px 20px 0px;
+      backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      animation-name: anim;
+      animation-duration: 5s;
+      animation-timing-function: linear;
+      animation-delay: 0s;
+      animation-iteration-count: infinite;
+     z-index: 600;
+  }
+  
+  .music-mediaplayer
+  {
+      height: 40%;
+      width: 90%;
+      margin: auto;
+      background-color: rgba(255, 255, 255, 0);
+     
+      display: flex;
+      flex-direction: column;
+      z-index: 500;
+  }
+  .music-mediaplayer h4
+  {
+      margin: auto;
+      font-size: 40px;
+  }
+  .music-mediaplayer input
+  {
+      margin: auto;
+      width: 100%;
+      margin-bottom: 1px;
+  }
+
+  input[type='range'] 
+  {
+      -webkit-appearance: none;
+      appearance: none; 
+      width: 80%;
+  
+      outline: none;
+      border-radius: 15px;
+      height: 6px;
+      background: #564d931d;
+  }
 
 
 
-<style>
+  input[type='range']::-webkit-slider-thumb 
+  {
+      -webkit-appearance: none;
+    
+      appearance: none; 
+      height: 15px;
+      width: 15px;
+      background-color: #564d93;
+      border-radius: 50%;
+      border: none;
+      
+      animation-name: slider;
+      animation-duration: 2s;
+      animation-fill-mode: forwards;
+      animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+      animation-iteration-count: infinite;
+  }
 
+  @keyframes slider 
+  {
+      0%
+      {
+          transform: translateX(0px);
+      } 
+      100%
+      {
+          transform: translateX(50px);
+      }
+  }
+  .media-player-icons
+  {
+      display: flex;
+      width: 50%;
+      height: fit-content;
+      margin: auto;
+      margin-bottom: 1px;
+      z-index: 500;
+  }
 
+  .music-banner
+  {
+      height: 50%;
+      width: 90%;
+      margin: auto;
+      background-color: #d1cfde55;
+      border-radius: 25px;
+      z-index: 600;
+  }
+  .music-banner img
+  {
+      width: 100%;
+      height: 100%;
+      border-radius: 0px 20px 0px;
+      box-shadow: 0px 5px 100px #f2f1fa;
+      backdrop-filter: blur(100px);
+  }
+  .darksoul-playicon
+  {
+      display: none;
+      margin: auto;
+      margin-bottom: 1px;
+      padding: 5px;
+  }
+  
+  .darksoul-pauseicon
+  {
+      display: flex;
+      margin: auto;
+      margin-bottom: 1px;
+      padding: 5px;
+  }
+  .darksoul-pauseicon:hover, .darksoul-playicon:hover, .backward:hover, .forward:hover
+  {
+      background-color: rgba(198, 190, 255, 0.696);
+      border-radius: 50%;
+      cursor: pointer;
+      backdrop-filter: blur(1000px);
+  }
+  .backward
+  {
+      margin: auto;
+      padding: 5px;
+      margin-bottom: 4px;
+  }
+  .forward
+  {
+      margin: auto;
+      padding: 5px;
+      margin-bottom: 1px;
+  }
 
+  .disclaimer
+  {
+      position: absolute;
+      bottom: 0px; 
+      left: 0; 
+      margin-left: auto; 
+      right: 0; 
+      margin-right: auto; 
+      width: fit-content;
+      color: white;
+      text-align: center;
+  }
+  .disclaimer a
+  {
+      text-decoration: none;
+      color: #584f95;
+  }
+  .disclaimer a:hover
+  {
+      font-weight: bolder;
+  }
+  ::selection
+  {
+      background-color: #453b7b;
+      color: white;
+  }
+  @media only screen and (max-width: 500px) 
+  {
+      .darksoul-music
+  {
+      margin: auto;
+      width: 90%;
+      height: 70%;
+      background-color: rgba(255, 255, 255, 0.379);
+      box-shadow: 0.5px 0.5px 2px rgb(255, 255, 255), -0.5px -0.5px 2px rgb(255, 255, 255);
+      border-radius: 0px 20px 0px;
+      backdrop-filter: blur(5px);
+      display: flex;
+      flex-direction: column;
+      animation-name: anim;
+      animation-duration: 5s;
+      animation-timing-function: linear;
+      animation-delay: 0s;
+      animation-iteration-count: infinite;
+     
+  }
+    
+  }
+  @keyframes anim 
+  {
+      0%
+      {
+          transform: translateY(0px) translateX(0px);
+      }
+      50%
+      {
+          transform: translateY(5px) translateX(5px);
+      }
+      100%
+      {
+          transform: translateY(0px) translateX(0px);
+      }
+  }
+  
+	    </style>
+    </head>
+    <body>
+      <div class="darksoul-music">
+          <div class="music-mediaplayer">
+  
+              <audio src="https://darksoul-codepen.github.io/Justin-Bieber-Company.mp3" type="audio/mp3" autoplay></audio>
+              <h4>🎵Justin Bieber - Company</h4>
+             
+              <input type="range" min="0" max="64" value="0" class="darksoul-range" id="slider" smooth=yes/>
+  
+              <div class="media-player-icons">
+                  <img class="backward" width="23" height="23" src="https://img.icons8.com/external-creatype-glyph-colourcreatype/64/7950F2/external-skip-web-application-v2-creatype-glyph-colourcreatype.png" alt="external-skip-web-application-v2-creatype-glyph-colourcreatype"/>
+                  <img class="darksoul-playicon" id="play" width="28" height="28" src="https://img.icons8.com/sf-black-filled/64/7950F2/play.png" alt="play" onclick="{play()}"/>
+                  <img class="darksoul-pauseicon" id="pause" width="28" height="28" src="https://img.icons8.com/external-solid-kawalan-studio/24/7950F2/external-pause-user-interface-solid-kawalan-studio.png" alt="external-pause-user-interface-solid-kawalan-studio" alt="pause" onclick="{play()}"/>
+                  <img class="forward" width="28" height="28" src="https://img.icons8.com/external-creatype-glyph-colourcreatype/64/7950F2/external-forward-essential-ui-v3-creatype-glyph-colourcreatype.png" alt="external-forward-essential-ui-v3-creatype-glyph-colourcreatype"/>    
+              </div>
+  
+           </div>
+          <div class="music-banner">
+              <img src="https://darksoul-codepen.github.io/artworks-000156861583-kdtytg-t500x500.jpg" alt="Justin Bieber Artwork - DarkSoul" />
+          </div>
+      </div>
+      <p class="disclaimer">Designed & Created by <a href="https://darksoul-codepen.github.io/" target="_blank">DarkSoul</a> | Icons by <a href="https://icons8.com/" target="_blank">Icons8</a></p>
+  
+        /* Script goes here.. */
+	    
+		    <script async>
+        var audio = document.querySelector('audio');
+        var playicon = document.getElementById("play");
+        var pauseicon = document.getElementById("pause");
+      
 
+        var range = document.getElementById("slider");
+        var n =0;
 
- @import url('https://fonts.googleapis.com/css2?family=Belanosima&family=Rubik+Vinyl&display=swap');
-   
-        body
+        setInterval( function()
         {
-            margin: 0;
-            width: 100%;
-            height: 100vh;
-            display: flex;
-            background-color: #FF7070;
-            transition: background-color 1s;
-            font-family: 'Belanosima', sans-serif;
-            overflow: hidden;
-        }
-        .darksoul-carousel
+            n+=0.5;
+            range.value = n;
+
+        } ,1000);
+        function play() 
         {
-            margin: auto;
-            width: 900px;
-            height: 600px;
-            background-color: rgba(0, 0, 0, 0);
-            display: flex;
-            margin-top: 6%;
-            cursor: pointer;
-        }
-        .apple
-        {
-            margin: auto;
-            width: 600px;
-            height: 80%;
-            background-color: #CC1918;
-            border-radius: 15px;
-            transition: width 2s;
-            display: flex;
-            flex-direction: column;
-        }
-        .orange
-        {
-            margin: auto;
-            width: 100px;
-            height: 80%;
-            background-color: #FFBA36;
-            border-radius: 15px;
-            transition: width 2s;
-            display: flex;
-            flex-direction: column;
-        }
-        .lemon
-        {
-            margin: auto;
-            width: 100px;
-            height: 80%;
-            background-color: #fdff8f;
-            border-radius: 15px;
-            transition: width 2s;
-            display: flex;
-            flex-direction: column;
-        }
-        .strawberry
-        {
-            margin: auto;
-            width: 100px;
-            height: 80%;
-            background-color: #FF2557;
-            border-radius: 15px;
-            transition: width 2s;
-            display: flex;
-            flex-direction: column;
-        }
-        #appleimg
-        {
-            position: absolute;
-            width: 255px;
-            height: 255px;
-            margin-left: 10px;
-            margin-top: 5px;
-            transition: visibility 2s;
-            z-index: -2;
-            
-        }
-        #lemonimg
-        {
-            position: absolute;
-            width: 255px;
-            height: 255px;
-            margin-left: 10px;
-            margin-top: 5px;
-            visibility: hidden;
-            transition: visibility 2s;
-            z-index: -2;
-        }
-        #strawberryimg
-        {
-            position: absolute;
-            width: 255px;
-            height: 255px;
-            margin-left: 10px;
-            margin-top: 5px;
-            visibility: hidden;
-            transition: visibility 2s;
-            z-index: -2;
-        } 
-        #orangeimg
-        {
-            position: absolute;
-            width: 255px;
-            height: 255px;
-            margin-left: 10px;
-            margin-top: 5px;
-            visibility: hidden;
-            transition: visibility 2s;
-            z-index: -2;
-        }
-        #appletext
-        {
-            font-size: 100px;
-            margin: auto;
-            color: rgb(255, 255, 255);
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            font-weight: 900;
-        }
-        #lemontext
-        {
-            margin: auto;
-            color: rgb(133, 130, 45);
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            font-weight: 900;
-            font-size: 30px;
-            rotate: 90deg;
-        }
-        #strawberrytext
-        {
-            margin: auto;
-            color: rgb(255, 255, 255);
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            font-weight: 900;
-            font-size: 30px;
-            rotate: 90deg;
-        }
-        #orangetext
-        {
-            margin: auto;
-            color: rgb(255, 255, 255);
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            font-weight: 900;
-            font-size: 30px;
-            rotate: 90deg;
-        }
-        @keyframes down 
-        {
-            0%
+           
+            if (audio.paused) 
             {
-                width: 200px;
-                height: 200px;
-                transform: translate(0px,0px);
-            }
-            100%
-            {
-                visibility: visible;
-                width: 250px;
-                height: 250px;
-                transform: translate(0px,-150px);
-            }
-        }
-        @keyframes visibility-h 
-        {
-
-            100%
-            {
-                visibility: hidden;
+                audio.play();
+                pauseicon.style.display = "flex";
+                playicon.style.display = "none";
             } 
-        }
-
-        @keyframes text 
-        { 
-            0%
+            else 
             {
-                font-size: 30px;
-                rotate: 90deg;
+                audio.pause();
+                pauseicon.style.display = "none";
+                playicon.style.display = "flex";
             }
-            100%
-            {
-                rotate: 0deg;
-                font-size: 150px;
-            } 
-        }
-        @keyframes text-back 
-        { 
-            0%
-            {
-                font-size: 150px;
-                rotate: 0deg;
-            }
-            100%
-            {
-                font-size: 30px;
-                rotate: 90deg;
-            } 
-        }
-       #bgimg1
-       {
-        position: absolute;
-        left: 10px;
-        width: 120px;
-        height: 120px;
-        rotate: 25deg;
-       }
-       #bgimg2
-       {
-        position: absolute;
-        left: 10px;
-        bottom: 0px;
-        width: 250px;
-        height: 250px;
-        rotate: 55deg;
-       }
-       #bgimg3
-       {
-        position: absolute;
-        right: 80px;
-        width: 120px;
-        height: 120px;
-        rotate: -145deg;
-       }
-       #bgimg4
-       {
-        position: absolute;
-        right: 10px;
-        bottom: 0px;
-        width: 200px;
-        height: 200px;
-        rotate: 125deg;
-       }
-       .disclaimer
-        {
-            position: absolute;
-            bottom: 0px; 
-            left: 0; 
-            margin-left: auto; 
-            right: 0; 
-            margin-right: auto; 
-            width: fit-content;
-            color: rgb(255, 255, 255);
-            text-align: center;
-        }
-        .disclaimer a
-        {
-            text-decoration: none;
-            color: #000000;
-        }
-        .disclaimer a:hover
-        {
-            font-weight: bolder;
-        }
-        ::selection
-        {
-            background-color: #00000000;
-            color: rgb(0, 0, 0);
-        }
-
-	</style>
-	   <script>
-	   var applediv = document.getElementById("apple");
-        var orangediv = document.getElementById("orange");
-        var lemondiv = document.getElementById("lemon");
-        var strawberrydiv = document.getElementById("strawberry");
-
-        var bodycolor = document.getElementById("body");
-
-        var appleimg = document.getElementById("appleimg");
-        var lemonimg = document.getElementById("lemonimg");
-        var orangeimg = document.getElementById("orangeimg");
-        var strawberryimg = document.getElementById("strawberryimg");
-
-        var appletext = document.getElementById("appletext");
-        var lemontext = document.getElementById("lemontext");
-        var strawberrytext = document.getElementById("strawberrytext");
-        var orangetext = document.getElementById("orangetext");
-
-        var bgimg1 = document.getElementById("bgimg1");
-        var bgimg2 = document.getElementById("bgimg2");
-        var bgimg3 = document.getElementById("bgimg3");
-        var bgimg4 = document.getElementById("bgimg4");
-
-        apple();
-		    </script>
-<script>
-        function apple() 
-        {
-            applediv.style.width = "600px";
-            orangediv.style.width = "100px";
-            lemondiv.style.width = "100px";
-            strawberrydiv.style.width = "100px";
-
-            bodycolor.style.backgroundColor = "#FF7070";
-
-            orangeimg.style.animation = "visibility-h 0s linear 0s 1 normal forwards";
-            lemonimg.style.animation = "visibility-h 0s linear 0s 1 normal forwards";
-            strawberryimg.style.animation = "visibility-h 0s linear 0s 1 normal forwards";
-            appleimg.style.animation = "down 1s linear 0s 1 normal forwards";
-
-            lemontext.style.animation = "text-back 1s linear 0s 1 normal forwards";
-            strawberrytext.style.animation = "text-back 1s linear 0s 1 normal forwards";
-            orangetext.style.animation = "text-back 1s linear 0s 1 normal forwards";
-            appletext.style.animation = "text 1s linear 0s 1 normal forwards";
-            
-            bgimg1.src = "https://darksoul-codepen.github.io/Fruits%20Carousel/apple.png";
-            bgimg2.src = "https://darksoul-codepen.github.io/Fruits%20Carousel/apple.png";
-            bgimg3.src = "https://darksoul-codepen.github.io/Fruits%20Carousel/apple.png";
-            bgimg4.src = "https://darksoul-codepen.github.io/Fruits%20Carousel/apple.png";
-        } </script>
-		   <script>
-        function lemon() 
-        {
-            lemondiv.style.width = "600px";
-            orangediv.style.width = "100px";
-            applediv.style.width = "100px";
-            strawberrydiv.style.width = "100px";
-
-            bodycolor.style.backgroundColor = "#f7e35b";
-
-            orangeimg.style.animation = "visibility-h 0s linear 0s 1 normal forwards";
-            appleimg.style.animation = "visibility-h 0s linear 0s 1 normal forwards";
-            strawberryimg.style.animation = "visibility-h 0s linear 0s 1 normal forwards";
-            lemonimg.style.animation = "down 1s linear 0s 1 normal forwards";
-
-            appletext.style.animation = "text-back 1s linear 0s 1 normal forwards";
-            strawberrytext.style.animation = "text-back 1s linear 0s 1 normal forwards";
-            orangetext.style.animation = "text-back 1s linear 0s 1 normal forwards";
-            lemontext.style.animation = "text 1s linear 0s 1 normal forwards";
-
-            bgimg1.src = "https://darksoul-codepen.github.io/Fruits%20Carousel/lemonbg.png";
-            bgimg2.src = "https://darksoul-codepen.github.io/Fruits%20Carousel/lemonbg.png";
-            bgimg3.src = "https://darksoul-codepen.github.io/Fruits%20Carousel/lemonbg.png";
-            bgimg4.src = "https://darksoul-codepen.github.io/Fruits%20Carousel/lemonbg.png";
-
-
-        } </script>
-        <script>
-        function strawberry() 
-        {
-            strawberrydiv.style.width = "600px";
-            applediv.style.width = "100px";
-            orangediv.style.width = "100px";
-            lemondiv.style.width = "100px";
-
-            bodycolor.style.backgroundColor = "#FF6286";
-
-            orangeimg.style.animation = "visibility-h 0s linear 0s 1 normal forwards";
-            appleimg.style.animation = "visibility-h 0s linear 0s 1 normal forwards";
-            lemonimg.style.animation = "visibility-h 0s linear 0s 1 normal forwards";
-            strawberryimg.style.animation = "down 1s linear 0s 1 normal forwards";
-
-            appletext.style.animation = "text-back 1s linear 0s 1 normal forwards";
-            orangetext.style.animation = "text-back 1s linear 0s 1 normal forwards";
-            lemontext.style.animation = "text-back 1s linear 0s 1 normal forwards";
-            strawberrytext.style.animation = "text 1s linear 0s 1 normal forwards";
-
-            bgimg1.src = "https://darksoul-codepen.github.io/Fruits%20Carousel/strawberrybg.png";
-            bgimg2.src = "https://darksoul-codepen.github.io/Fruits%20Carousel/strawberrybg.png";
-            bgimg3.src = "https://darksoul-codepen.github.io/Fruits%20Carousel/strawberrybg.png";
-            bgimg4.src = "https://darksoul-codepen.github.io/Fruits%20Carousel/strawberrybg.png";
-        } </script>
-		   <script>
-        function orange() 
-        {
-            orangediv.style.width = "600px";
-            applediv.style.width = "100px";
-            lemondiv.style.width = "100px";
-            strawberrydiv.style.width = "100px"; 
-
-            bodycolor.style.backgroundColor = "#f4a308";
-
-            appleimg.style.animation = "visibility-h 0s linear 0s 1 normal forwards";
-            lemonimg.style.animation = "visibility-h 0s linear 0s 1 normal forwards";
-            strawberryimg.style.animation = "visibility-h 0s linear 0s 1 normal forwards";
-            orangeimg.style.animation = "down 1s linear 0s 1 normal forwards";
-
-            appletext.style.animation = "text-back 1s linear 0s 1 normal forwards";
-            lemontext.style.animation = "text-back 1s linear 0s 1 normal forwards";
-            strawberrytext.style.animation = "text-back 1s linear 0s 1 normal forwards";
-            orangetext.style.animation = "text 1s linear 0s 1 normal forwards";
-
-            bgimg1.src = "https://darksoul-codepen.github.io/Fruits%20Carousel/orange.png";
-            bgimg2.src = "https://darksoul-codepen.github.io/Fruits%20Carousel/orange.png";
-            bgimg3.src = "https://darksoul-codepen.github.io/Fruits%20Carousel/orange.png";
-            bgimg4.src = "https://darksoul-codepen.github.io/Fruits%20Carousel/orange.png";
         }
     </script>
-  </head>
-  <body id="body">
-    <div class="darksoul-carousel">
-        <img src="https://darksoul-codepen.github.io/Fruits%20Carousel/apple.png" id="bgimg1"/>
-        <img src="https://darksoul-codepen.github.io/Fruits%20Carousel/apple.png" id="bgimg2"/>
-        <img src="https://darksoul-codepen.github.io/Fruits%20Carousel/apple.png" id="bgimg3"/>
-        <img src="https://darksoul-codepen.github.io/Fruits%20Carousel/apple.png" id="bgimg4"/>
-        
-        <div class="apple" onclick="{apple()}" id="apple">
-            <img style="margin-left: 30px; margin-top: 15px;" width="36" height="36" src="https://img.icons8.com/external-smashingstocks-glyph-smashing-stocks/66/FFFFFF/external-apple-sports-and-awards-smashingstocks-glyph-smashing-stocks.png" alt="external-apple-sports-and-awards-smashingstocks-glyph-smashing-stocks"/>
-            <h1 id="appletext">APPLE</h1>
-           <img src="https://darksoul-codepen.github.io/Fruits%20Carousel/apple.png" id="appleimg"/>
-        </div>
-        <div class="lemon" onclick="{lemon()}" id="lemon">
-            <img style="margin-left: 30px; margin-top: 15px;" width="36" height="36" src="https://img.icons8.com/glyph-neue/64/1A1A1A/citrus.png" alt="citrus"/>
-            <img src="https://darksoul-codepen.github.io/Fruits%20Carousel/lemon.png" id="lemonimg"/>
-            <h1 id="lemontext">LEMON</h1>
-        </div>
-        <div class="strawberry" onclick="{strawberry()}" id="strawberry">
-            <img style="margin-left: 30px; margin-top: 15px;" width="36" height="36" src="https://img.icons8.com/external-smashingstocks-glyph-smashing-stocks/66/FFFFFF/external-Strawberry-food-smashingstocks-glyph-smashing-stocks.png" alt="external-Strawberry-food-smashingstocks-glyph-smashing-stocks"/>
-            <img src="https://darksoul-codepen.github.io/Fruits%20Carousel/strawberry.png" id="strawberryimg"/>
-            <h1 id="strawberrytext">BERRY</h1>
-        </div>
-        <div class="orange" onclick="{orange()}" id="orange">
-            <img style="margin-left: 30px; margin-top: 10px;" width="36" height="36" src="https://img.icons8.com/pastel-glyph/64/FFFFFF/citrus-1.png" alt="citrus-1"/>
-            <img src="https://darksoul-codepen.github.io/Fruits%20Carousel/orange.png" id="orangeimg"/>
-            <h1 id="orangetext">ORANGE</h1>
-        </div>
-    </div>
-    <p class="disclaimer">Designed & Created by <a href="https://darksoul-codepen.github.io/" target="_blank">DarkSoul</a> | Icons by <a href="https://icons8.com/" target="_blank">Icons8</a></p>
-    
-</html>
+
+	   
+    </body>
+    </html>
