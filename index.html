@@ -22,605 +22,419 @@
 
 
 
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
+ @import url('https://fonts.googleapis.com/css2?family=Belanosima&family=Rubik+Vinyl&display=swap');
+   
+        body
+        {
+            margin: 0;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            background-color: #FF7070;
+            transition: background-color 1s;
+            font-family: 'Belanosima', sans-serif;
+            overflow: hidden;
+        }
+        .darksoul-carousel
+        {
+            margin: auto;
+            width: 900px;
+            height: 600px;
+            background-color: rgba(0, 0, 0, 0);
+            display: flex;
+            margin-top: 6%;
+            cursor: pointer;
+        }
+        .apple
+        {
+            margin: auto;
+            width: 600px;
+            height: 80%;
+            background-color: #CC1918;
+            border-radius: 15px;
+            transition: width 2s;
+            display: flex;
+            flex-direction: column;
+        }
+        .orange
+        {
+            margin: auto;
+            width: 100px;
+            height: 80%;
+            background-color: #FFBA36;
+            border-radius: 15px;
+            transition: width 2s;
+            display: flex;
+            flex-direction: column;
+        }
+        .lemon
+        {
+            margin: auto;
+            width: 100px;
+            height: 80%;
+            background-color: #fdff8f;
+            border-radius: 15px;
+            transition: width 2s;
+            display: flex;
+            flex-direction: column;
+        }
+        .strawberry
+        {
+            margin: auto;
+            width: 100px;
+            height: 80%;
+            background-color: #FF2557;
+            border-radius: 15px;
+            transition: width 2s;
+            display: flex;
+            flex-direction: column;
+        }
+        #appleimg
+        {
+            position: absolute;
+            width: 255px;
+            height: 255px;
+            margin-left: 10px;
+            margin-top: 5px;
+            transition: visibility 2s;
+            z-index: -2;
+            
+        }
+        #lemonimg
+        {
+            position: absolute;
+            width: 255px;
+            height: 255px;
+            margin-left: 10px;
+            margin-top: 5px;
+            visibility: hidden;
+            transition: visibility 2s;
+            z-index: -2;
+        }
+        #strawberryimg
+        {
+            position: absolute;
+            width: 255px;
+            height: 255px;
+            margin-left: 10px;
+            margin-top: 5px;
+            visibility: hidden;
+            transition: visibility 2s;
+            z-index: -2;
+        } 
+        #orangeimg
+        {
+            position: absolute;
+            width: 255px;
+            height: 255px;
+            margin-left: 10px;
+            margin-top: 5px;
+            visibility: hidden;
+            transition: visibility 2s;
+            z-index: -2;
+        }
+        #appletext
+        {
+            font-size: 100px;
+            margin: auto;
+            color: rgb(255, 255, 255);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: 900;
+        }
+        #lemontext
+        {
+            margin: auto;
+            color: rgb(133, 130, 45);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: 900;
+            font-size: 30px;
+            rotate: 90deg;
+        }
+        #strawberrytext
+        {
+            margin: auto;
+            color: rgb(255, 255, 255);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: 900;
+            font-size: 30px;
+            rotate: 90deg;
+        }
+        #orangetext
+        {
+            margin: auto;
+            color: rgb(255, 255, 255);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: 900;
+            font-size: 30px;
+            rotate: 90deg;
+        }
+        @keyframes down 
+        {
+            0%
+            {
+                width: 200px;
+                height: 200px;
+                transform: translate(0px,0px);
+            }
+            100%
+            {
+                visibility: visible;
+                width: 250px;
+                height: 250px;
+                transform: translate(0px,-150px);
+            }
+        }
+        @keyframes visibility-h 
+        {
 
-/* ===================================
-     Reset and Setup 
- ====================================== */
-html,
-body {
-    height:100%;
-    min-height:100%;
-    -webkit-text-size-adjust:100%;
-    -webkit-tap-highlight-color:transparent;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-}
+            100%
+            {
+                visibility: hidden;
+            } 
+        }
 
-/* Reset Default Margin */
-a, abbr, acronym, address, applet, 
-big, blockquote, body, caption, 
-cite, code, dd, del, dfn, div, dl,
-dt, em, fieldset, form, h1, h2, h3,
-h4, h5, h6, html, iframe, img, ins, 
-kbd, label, legend, li, object, ol, 
-p, pre, q, s, samp, section, small, span, 
-strike, strong, sub, sup, table, 
-tbody, td, tfoot, th, thead, tr, tt, ul, var {
-    margin:0;
-    padding:0;
-    border:0;
-    outline:0;
-    font-weight:inherit;
-    font-style:inherit;
-    font-family:inherit;
-    font-size:100%;
-    vertical-align:baseline;
-}
-
-body {
-    font-family:'Roboto', sans-serif;
-    font-size:16px;
-    line-height:1.4;
-    font-weight:400;
-    color:#191919;
-    background:#E4E4E4;
-    z-index:1;
-}
-
-.owl-carousel .owl-wrapper,
-.owl-carousel .owl-item {
-    -webkit-backface-visibility:hidden;
-    -khtml-backface-visibility:hidden;
-    -moz-backface-visibility:hidden;
-    -ms-backface-visibility:hidden;
-    -o-backface-visibility:hidden;
-    -webkit-transform:translate3d(0, 0, 0);
-    -khtml-transform:translate3d(0, 0, 0);
-    -moz-transform:translate3d(0, 0, 0);
-    -ms-transform:translate3d(0, 0, 0);
-    -o-transform:translate3d(0, 0, 0);
-    transform:translate3d(0, 0, 0);
-}
-
-.hero__backgorund{
-    position: absolute;
-    display: block;
-    /* table-layout: fixed; */
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background: #666;
-}
-
-.hero__backgorund .item{
-    position: absolute;
-    display: block;
-    width: 100%;
-    height: 100%;
-}
-
-
-.hero__backgorund.owl-carousel .owl-item {
-    width:100%;
-    min-height: 100vh !important;
-}
-
-.owl-carousel {
-  position: relative;
-  height: 100%;
-}
-
-.main__container{
-    position:fixed;
-    display:table;
-    table-layout:fixed;
-    top:0;
-    width:100%;
-    height:100%;
-}
-
-.contain__wrapper{
-    position:relative;
-    display:table-cell;
-    vertical-align:middle;
-}
-
-.music__wrapper{
-    position:relative;
-    width:700px;
-    height:350px;
-    background: #19181E;
-    margin:0 auto;    
-    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.8);
-    overflow:hidden;
-}
-
-.left__panel{
-    position: absolute;
-    left: 0;
-    width:350px;
-    height:350px;
-    background: #4729A2;
-    cursor: w-resize;
-    -webkit-transform:translateX(0);
-    transform:translateX(0);
-    -webkit-transition:all 500ms cubic-bezier(0.65, 0.19, 0.1, 0.93) 00ms;
-    transition:all 500ms cubic-bezier(0.65, 0.19, 0.1, 0.93) 00ms;
-}
-
-.right__panel{
-    position: absolute;
-    right: 0;
-    width:350px;
-    height:350px;
-    background: #19181E;
-    -webkit-transform:translateX(0);
-    transform:translateX(0);
-    -webkit-transition:all 500ms cubic-bezier(0.65, 0.19, 0.1, 0.93) 00ms;
-    transition:all 500ms cubic-bezier(0.65, 0.19, 0.1, 0.93) 00ms;
-}
-
-.header{
-    position: relative;
-    width:350px;
-    height:120px;
-    background: #09090B; 
-}
-
-.icon-right{
-    display: block;
-    text-align:right;
-    font-size: 24px;
-    color: #ffffff;
-    padding: 10px 20px;
-    cursor:pointer;
-}
-
-.header .song__name{
-    color: #CDC2FF;
-    font-size: 1.450em;
-    font-weight: 300;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    text-align: center;
-}
-
-.header .album__name{
-    color: #ffffff;
-    font-size: 1.000em;
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    text-align: center;
-}
-
-.music__control{
-    position: relative;
-    width:350px;
-    height:230px;   
-}
-
-.music__button{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    /* margin: auto; */
-    text-align: center;
-}
-
-.button__pause{
-    display: inline-block;
-    height: 70px;
-    width: 70px;
-    background: #2D3446;
-    border-radius: 50%;
-    box-shadow: 0 0 1px rgb(45, 52, 70);
-    font-size: 46px;
-    margin:0 10px;
-    text-align: center;
-    line-height: 70px;
-    color: #FFF;
-    cursor: pointer;  
-}
-
-.button__prev,
-.button__next{
-    display: inline-block;
-    height: 50px;
-    width: 50px;
-    background: #7C60FF;
-    border-radius: 50%;
-    box-shadow: 0 0 1px rgb(193, 193, 193);
-    font-size: 32px;
-    text-align: center;
-    line-height: 50px;
-    color: #FFF;
-    vertical-align: bottom;
-    cursor: pointer;
-    -webkit-transition:all 300ms ease;
-    transition:all 300ms ease;
-}
-
-.button__pause:active,
-.button__prev:active,
-.button__next:active{
-    background: #4729A2;
-   -moz-box-shadow:inset 0 0 10px #000000;
-   -webkit-box-shadow:inset 0 0 10px #000000;
-    box-shadow:inset 0 0 10px #000000;
-    -webkit-transition:all 300ms ease;
-    transition:all 300ms ease;
-}
-
-input[type=range] {
-   -webkit-appearance: none;
-    background-color: silver;
-    width: 300px;
-    height: 5px;
-    border-radius: 3px;
-    margin: 30px 0;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-     -webkit-appearance: none;
-    background-color: #7C60FF;
-    width: 20px;
-    height: 20px;
-    border-radius: 10px;
-}
-
-.display{
-    display:none;
-}
-
-.right__panel__menuOpen{
-    -webkit-transform:translateX(-250px);
-    transform:translateX(-250px);
-    -webkit-transition:all 500ms cubic-bezier(0.65, 0.19, 0.1, 0.93) 00ms;
-    transition:all 500ms cubic-bezier(0.65, 0.19, 0.1, 0.93) 00ms;
-}
-
-.left__panel__menuOpen{
-    -webkit-transform:translateX(-250px);
-    transform:translateX(-250px);
-    -webkit-transition:all 500ms cubic-bezier(0.65, 0.19, 0.1, 0.93) 00ms;
-    transition:all 500ms cubic-bezier(0.65, 0.19, 0.1, 0.93) 00ms;
-}
-
-.music__menu{
-    width: 600px;
-    /* height: 350px; */
-    text-align: center;
-    padding: 0px;
-}
-
-.menu_list{
-    display: inline-block;
-    height: 70px;
-    width: 70px;
-    margin: 20px 50px 35px ;
-    background: #7C60FF;
-    border-radius: 50%;
-    box-shadow: 0 0 1px rgb(71, 41, 162);
-    font-size: 16px;
-    text-align: center;
-    color: #DBD3FF;
-    line-height: 45px;
-    vertical-align: bottom;
-    visibility:hidden;
-    -webkit-transform:scale(0);
-    transform:scale(0);
-    -webkit-transition:all 300ms cubic-bezier(0.65, 0.19, 0.1, 0.93) 00ms;
-    transition:all 300ms cubic-bezier(0.65, 0.19, 0.1, 0.93) 00ms;
-}
-
-.menu_list i{
-    display: block;
-    font-size: 28px;
-    text-align: center;
-    line-height: 70px;
-    color: #FFF;  
-}
-
-.menu_list_open .menu_list{
-    visibility:visible;
-    -webkit-transform:scale(1);
-    transform:scale(1);
-    -webkit-transition:all 300ms cubic-bezier(0.51, 0.25, 0.86, 0.45) 00ms;
-    transition:all 300ms cubic-bezier(0.51, 0.25, 0.86, 0.45) 00ms;
-}
-
-
-.menu_list_open .menu_list:nth-child(1) {
-    background: #7C60FF;
-    -webkit-transition-delay:100ms;
-    transition-delay:100ms;
-}
-
-.menu_list_open .menu_list:nth-child(2) {
-    background: #4729A2;
-    -webkit-transition-delay:150ms;
-    transition-delay:150ms;
-}
-
-.menu_list_open .menu_list:nth-child(3) {
-    background: #7C60FF;
-    -webkit-transition-delay:200ms;
-    transition-delay:200ms;
-}
-
-.menu_list_open .menu_list:nth-child(4) {
-    background: #4729A2;
-    -webkit-transition-delay:250ms;
-    transition-delay:250ms;
-}
-
-.menu_list_open .menu_list:nth-child(5) {
-    background: #7C60FF;
-    -webkit-transition-delay:300ms;
-    transition-delay:300ms;
-}
-
-.menu_list_open .menu_list:nth-child(6) {
-    background: #4729A2;
-    -webkit-transition-delay:350ms;
-    transition-delay:350ms;
-}
-
-
-
-
-/* Feel free to change duration  */
-
-.animated {
-    -webkit-animation-duration: 100ms;
-    animation-duration: 100ms;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-}
-
-.owl-animated-out {
-    z-index: 1;
-}
-.owl-animated-in {
-    z-index: 0;
-}
-
-@-webkit-keyframes slideInDown {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(-300px);
-    transform: translateY(-300px);
-  }
-
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideInDown {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(-300px);
-    -ms-transform: translateY(-300px);
-    transform: translateY(-300px);
-  }
-
-  100% {
-    -webkit-transform: translateY(0);
-    -ms-transform: translateY(0);
-    transform: translateY(0);
-  }
-}
-
-.slideInDown {
-  -webkit-animation-name: slideInDown;
-  animation-name: slideInDown;
-}
-
-
-@-webkit-keyframes slideOutDown {
-  0% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: translateY(300px);
-    transform: translateY(300px);
-  }
-}
-
-@keyframes slideOutDown {
-  0% {
-    -webkit-transform: translateY(0);
-    -ms-transform: translateY(0);
-    transform: translateY(0);
-  }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: translateY(300px);
-    -ms-transform: translateY(300px);
-    transform: translateY(300px);
-  }
-}
-
-.slideOutDown {
-  -webkit-animation-name: slideOutDown;
-  animation-name: slideOutDown;
-}
-
+        @keyframes text 
+        { 
+            0%
+            {
+                font-size: 30px;
+                rotate: 90deg;
+            }
+            100%
+            {
+                rotate: 0deg;
+                font-size: 150px;
+            } 
+        }
+        @keyframes text-back 
+        { 
+            0%
+            {
+                font-size: 150px;
+                rotate: 0deg;
+            }
+            100%
+            {
+                font-size: 30px;
+                rotate: 90deg;
+            } 
+        }
+       #bgimg1
+       {
+        position: absolute;
+        left: 10px;
+        width: 120px;
+        height: 120px;
+        rotate: 25deg;
+       }
+       #bgimg2
+       {
+        position: absolute;
+        left: 10px;
+        bottom: 0px;
+        width: 250px;
+        height: 250px;
+        rotate: 55deg;
+       }
+       #bgimg3
+       {
+        position: absolute;
+        right: 80px;
+        width: 120px;
+        height: 120px;
+        rotate: -145deg;
+       }
+       #bgimg4
+       {
+        position: absolute;
+        right: 10px;
+        bottom: 0px;
+        width: 200px;
+        height: 200px;
+        rotate: 125deg;
+       }
+       .disclaimer
+        {
+            position: absolute;
+            bottom: 0px; 
+            left: 0; 
+            margin-left: auto; 
+            right: 0; 
+            margin-right: auto; 
+            width: fit-content;
+            color: rgb(255, 255, 255);
+            text-align: center;
+        }
+        .disclaimer a
+        {
+            text-decoration: none;
+            color: #000000;
+        }
+        .disclaimer a:hover
+        {
+            font-weight: bolder;
+        }
+        ::selection
+        {
+            background-color: #00000000;
+            color: rgb(0, 0, 0);
+        }
 
 	</style>
-	   <script type="text/javascript">
-	$(document).ready(function(e) {
+	   <script>
+	   var applediv = document.getElementById("apple");
+        var orangediv = document.getElementById("orange");
+        var lemondiv = document.getElementById("lemon");
+        var strawberrydiv = document.getElementById("strawberry");
 
-	$('.icon-right').on('click', function() {
-		$('.music__info__wrapper').toggleClass('display');
-	});
+        var bodycolor = document.getElementById("body");
 
-	$('.icon-right').on('click', function() {
-		$('.right__panel').toggleClass('right__panel__menuOpen');
-		$('.left__panel').toggleClass('left__panel__menuOpen');
-	});
+        var appleimg = document.getElementById("appleimg");
+        var lemonimg = document.getElementById("lemonimg");
+        var orangeimg = document.getElementById("orangeimg");
+        var strawberryimg = document.getElementById("strawberryimg");
 
-	$('.music__menu').on('click', function() {
-		$('.music__info__wrapper').removeClass('display');
-	});
+        var appletext = document.getElementById("appletext");
+        var lemontext = document.getElementById("lemontext");
+        var strawberrytext = document.getElementById("strawberrytext");
+        var orangetext = document.getElementById("orangetext");
 
-	$('.icon-right').on('click', function() {
-		$('.music__menu').addClass('menu_list_open');
-	});
+        var bgimg1 = document.getElementById("bgimg1");
+        var bgimg2 = document.getElementById("bgimg2");
+        var bgimg3 = document.getElementById("bgimg3");
+        var bgimg4 = document.getElementById("bgimg4");
 
-	$('.music__menu').on('click', function() {
-		$('.right__panel').removeClass('right__panel__menuOpen');
-		$('.left__panel').removeClass('left__panel__menuOpen');
-		$('.music__menu').removeClass('menu_list_open');
-	});
+        apple();
 
-	var $sync1 = $(".cover"),
-		$sync2 = $(".title, .hero__backgorund"),
-		flag = false,
-		duration = 300;
+        function apple() 
+        {
+            applediv.style.width = "600px";
+            orangediv.style.width = "100px";
+            lemondiv.style.width = "100px";
+            strawberrydiv.style.width = "100px";
 
-	$sync1
-		.owlCarousel({
-			loop: true,
-			center: true,
-			items: 1,
-			nav: false,
-			dots: false
-		})
-		.on('changed.owl.carousel', function(e) {
-			if (!flag) {
-				flag = true;
-				$sync2.trigger('to.owl.carousel', [e.item.index, duration, true]);
-				flag = false;
-			}
-		});
+            bodycolor.style.backgroundColor = "#FF7070";
 
-	$sync2
-		.owlCarousel({
-			loop: true,
-			items: 1,
-			nav: false,
-			dots: false,
-			animateOut: 'slideOutDown',
-			animateIn: 'slideInDown',
-			mouseDrag: false,
-			touchDrag: false,
-			pullDrag: false
-		})
-		.on('click', '.owl-item', function() {
-			$sync1.trigger('to.owl.carousel', [$(this).index(), duration, true]);
-		});
+            orangeimg.style.animation = "visibility-h 0s linear 0s 1 normal forwards";
+            lemonimg.style.animation = "visibility-h 0s linear 0s 1 normal forwards";
+            strawberryimg.style.animation = "visibility-h 0s linear 0s 1 normal forwards";
+            appleimg.style.animation = "down 1s linear 0s 1 normal forwards";
 
-	owl = $('.owl-carousel').owlCarousel();
-	$(".button__prev").click(function() {
-		owl.trigger('prev.owl.carousel');
-	});
+            lemontext.style.animation = "text-back 1s linear 0s 1 normal forwards";
+            strawberrytext.style.animation = "text-back 1s linear 0s 1 normal forwards";
+            orangetext.style.animation = "text-back 1s linear 0s 1 normal forwards";
+            appletext.style.animation = "text 1s linear 0s 1 normal forwards";
+            
+            bgimg1.src = "https://darksoul-codepen.github.io/Fruits%20Carousel/apple.png";
+            bgimg2.src = "https://darksoul-codepen.github.io/Fruits%20Carousel/apple.png";
+            bgimg3.src = "https://darksoul-codepen.github.io/Fruits%20Carousel/apple.png";
+            bgimg4.src = "https://darksoul-codepen.github.io/Fruits%20Carousel/apple.png";
+        }
+        function lemon() 
+        {
+            lemondiv.style.width = "600px";
+            orangediv.style.width = "100px";
+            applediv.style.width = "100px";
+            strawberrydiv.style.width = "100px";
 
-	$(".button__next").click(function() {
-		owl.trigger('next.owl.carousel');
-	});
+            bodycolor.style.backgroundColor = "#f7e35b";
 
-}); // 
+            orangeimg.style.animation = "visibility-h 0s linear 0s 1 normal forwards";
+            appleimg.style.animation = "visibility-h 0s linear 0s 1 normal forwards";
+            strawberryimg.style.animation = "visibility-h 0s linear 0s 1 normal forwards";
+            lemonimg.style.animation = "down 1s linear 0s 1 normal forwards";
+
+            appletext.style.animation = "text-back 1s linear 0s 1 normal forwards";
+            strawberrytext.style.animation = "text-back 1s linear 0s 1 normal forwards";
+            orangetext.style.animation = "text-back 1s linear 0s 1 normal forwards";
+            lemontext.style.animation = "text 1s linear 0s 1 normal forwards";
+
+            bgimg1.src = "https://darksoul-codepen.github.io/Fruits%20Carousel/lemonbg.png";
+            bgimg2.src = "https://darksoul-codepen.github.io/Fruits%20Carousel/lemonbg.png";
+            bgimg3.src = "https://darksoul-codepen.github.io/Fruits%20Carousel/lemonbg.png";
+            bgimg4.src = "https://darksoul-codepen.github.io/Fruits%20Carousel/lemonbg.png";
+
+
+        }
+        
+        function strawberry() 
+        {
+            strawberrydiv.style.width = "600px";
+            applediv.style.width = "100px";
+            orangediv.style.width = "100px";
+            lemondiv.style.width = "100px";
+
+            bodycolor.style.backgroundColor = "#FF6286";
+
+            orangeimg.style.animation = "visibility-h 0s linear 0s 1 normal forwards";
+            appleimg.style.animation = "visibility-h 0s linear 0s 1 normal forwards";
+            lemonimg.style.animation = "visibility-h 0s linear 0s 1 normal forwards";
+            strawberryimg.style.animation = "down 1s linear 0s 1 normal forwards";
+
+            appletext.style.animation = "text-back 1s linear 0s 1 normal forwards";
+            orangetext.style.animation = "text-back 1s linear 0s 1 normal forwards";
+            lemontext.style.animation = "text-back 1s linear 0s 1 normal forwards";
+            strawberrytext.style.animation = "text 1s linear 0s 1 normal forwards";
+
+            bgimg1.src = "https://darksoul-codepen.github.io/Fruits%20Carousel/strawberrybg.png";
+            bgimg2.src = "https://darksoul-codepen.github.io/Fruits%20Carousel/strawberrybg.png";
+            bgimg3.src = "https://darksoul-codepen.github.io/Fruits%20Carousel/strawberrybg.png";
+            bgimg4.src = "https://darksoul-codepen.github.io/Fruits%20Carousel/strawberrybg.png";
+        }
+        function orange() 
+        {
+            orangediv.style.width = "600px";
+            applediv.style.width = "100px";
+            lemondiv.style.width = "100px";
+            strawberrydiv.style.width = "100px"; 
+
+            bodycolor.style.backgroundColor = "#f4a308";
+
+            appleimg.style.animation = "visibility-h 0s linear 0s 1 normal forwards";
+            lemonimg.style.animation = "visibility-h 0s linear 0s 1 normal forwards";
+            strawberryimg.style.animation = "visibility-h 0s linear 0s 1 normal forwards";
+            orangeimg.style.animation = "down 1s linear 0s 1 normal forwards";
+
+            appletext.style.animation = "text-back 1s linear 0s 1 normal forwards";
+            lemontext.style.animation = "text-back 1s linear 0s 1 normal forwards";
+            strawberrytext.style.animation = "text-back 1s linear 0s 1 normal forwards";
+            orangetext.style.animation = "text 1s linear 0s 1 normal forwards";
+
+            bgimg1.src = "https://darksoul-codepen.github.io/Fruits%20Carousel/orange.png";
+            bgimg2.src = "https://darksoul-codepen.github.io/Fruits%20Carousel/orange.png";
+            bgimg3.src = "https://darksoul-codepen.github.io/Fruits%20Carousel/orange.png";
+            bgimg4.src = "https://darksoul-codepen.github.io/Fruits%20Carousel/orange.png";
+        }
     </script>
   </head>
-  <body>
-
-
-	  
-
-
-	  
-    <div class="hero__backgorund owl-carousel">
-		<div class="item" style="background: #3F51B5"></div>
-		<div class="item" style="background: #8BC34A"></div>
-		<div class="item" style="background: #673AB7"></div>
-		<div class="item" style="background: #E91E63"></div>
-</div>
-
-
-
-	<div class="main__container">
-		<div class="contain__wrapper">
-			<div class="music__wrapper">
-				<div class="left__panel">
-					<div class="cover owl-carousel">
-					    <div class="item">
-					    	<img src="http://cdn.pikoff.com/wp-content/uploads/2016/05/02/Ai-Pink-and-purple-abstract-background-vector-free-download-350x350.jpg" alt="">
-					    </div>
-					    <div class="item">
-					    	<img src="http://cdn.pikoff.com/wp-content/uploads/2016/05/02/Ai-Pink-and-orange-abstract-background-vector-free-download-350x350.jpg" alt="">
-					    </div>
-					    <div class="item">
-					    	<img src="http://cdn.pikoff.com/wp-content/uploads/2016/05/02/Ai-Blue-abstract-background-vector-free-download-350x350.jpg" alt="">
-					    </div>
-					    <div class="item">
-					    	<img src="http://cdn.pikoff.com/wp-content/uploads/2016/05/02/Ai-Yellow-and-green-abstract-background-vector-free-download-350x350.jpg" alt="">
-					    </div>
-					</div>
-				</div>
-
-				<div class="right__panel">
-					<div class="music__info__wrapper">
-						<div class="header">
-							<div class="icon__wrapper">
-								
-								<span class="icon-right"><i class="zmdi zmdi-apps"></i></span>
-								<div class="title owl-carousel">
-								    <div class="item">
-										<div class="song__name">Sorry The Movement</div>
-										<p class="album__name">Justin Bieber</p>
-								    </div>
-								    <div class="item">
-										<div class="song__name">Passenger Let Her Go</div>
-										<p class="album__name">Passenger</p>
-								    </div>
-								    <div class="item">
-										<div class="song__name">Counting Stars...</div>
-										<p class="album__name">OneRepublic</p>
-								    </div>
-								    <div class="item">
-										<div class="song__name">Waiting For Love</div>
-										<p class="album__name">Avicii</p>
-								    </div>
-								</div>
-								
-							</div>
-						</div>
-
-						<div class="music__control">
-							<div class="music__button">
-								<span class="button__prev"><i class="zmdi zmdi-fast-rewind"></i></span>
-								<span class="button__pause"><i class="zmdi zmdi-pause"></i></span>
-								<span class="button__next"><i class="zmdi zmdi-fast-forward"></i></span>
-								<div>
-									<input type="range" min="0" max="50" value="10" step="1" />	
-								</div>
-								
-							</div>
-						</div>
-					</div>
-					<div class="music__menu">
-						<span class="icon-right"><i class="zmdi zmdi-close"></i></span>
-						<span class="menu_list"><i class="zmdi zmdi-favorite"></i>Faverate</span>
-						<span class="menu_list"><i class="zmdi zmdi-audio"></i>Music</span>
-						<span class="menu_list"><i class="zmdi zmdi-view-carousel"></i>Album</span>
-						<span class="menu_list"><i class="zmdi zmdi-time-restore"></i>History</span>
-						<span class="menu_list"><i class="zmdi zmdi-shopping-cart"></i>Cart</span>
-						<span class="menu_list"><i class="zmdi zmdi-settings"></i>Account</span>
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</div>
-  </body>
+  <body id="body">
+    <div class="darksoul-carousel">
+        <img src="https://darksoul-codepen.github.io/Fruits%20Carousel/apple.png" id="bgimg1"/>
+        <img src="https://darksoul-codepen.github.io/Fruits%20Carousel/apple.png" id="bgimg2"/>
+        <img src="https://darksoul-codepen.github.io/Fruits%20Carousel/apple.png" id="bgimg3"/>
+        <img src="https://darksoul-codepen.github.io/Fruits%20Carousel/apple.png" id="bgimg4"/>
+        
+        <div class="apple" onclick="{apple()}" id="apple">
+            <img style="margin-left: 30px; margin-top: 15px;" width="36" height="36" src="https://img.icons8.com/external-smashingstocks-glyph-smashing-stocks/66/FFFFFF/external-apple-sports-and-awards-smashingstocks-glyph-smashing-stocks.png" alt="external-apple-sports-and-awards-smashingstocks-glyph-smashing-stocks"/>
+            <h1 id="appletext">APPLE</h1>
+           <img src="https://darksoul-codepen.github.io/Fruits%20Carousel/apple.png" id="appleimg"/>
+        </div>
+        <div class="lemon" onclick="{lemon()}" id="lemon">
+            <img style="margin-left: 30px; margin-top: 15px;" width="36" height="36" src="https://img.icons8.com/glyph-neue/64/1A1A1A/citrus.png" alt="citrus"/>
+            <img src="https://darksoul-codepen.github.io/Fruits%20Carousel/lemon.png" id="lemonimg"/>
+            <h1 id="lemontext">LEMON</h1>
+        </div>
+        <div class="strawberry" onclick="{strawberry()}" id="strawberry">
+            <img style="margin-left: 30px; margin-top: 15px;" width="36" height="36" src="https://img.icons8.com/external-smashingstocks-glyph-smashing-stocks/66/FFFFFF/external-Strawberry-food-smashingstocks-glyph-smashing-stocks.png" alt="external-Strawberry-food-smashingstocks-glyph-smashing-stocks"/>
+            <img src="https://darksoul-codepen.github.io/Fruits%20Carousel/strawberry.png" id="strawberryimg"/>
+            <h1 id="strawberrytext">BERRY</h1>
+        </div>
+        <div class="orange" onclick="{orange()}" id="orange">
+            <img style="margin-left: 30px; margin-top: 10px;" width="36" height="36" src="https://img.icons8.com/pastel-glyph/64/FFFFFF/citrus-1.png" alt="citrus-1"/>
+            <img src="https://darksoul-codepen.github.io/Fruits%20Carousel/orange.png" id="orangeimg"/>
+            <h1 id="orangetext">ORANGE</h1>
+        </div>
+    </div>
+    <p class="disclaimer">Designed & Created by <a href="https://darksoul-codepen.github.io/" target="_blank">DarkSoul</a> | Icons by <a href="https://icons8.com/" target="_blank">Icons8</a></p>
+    
 </html>
